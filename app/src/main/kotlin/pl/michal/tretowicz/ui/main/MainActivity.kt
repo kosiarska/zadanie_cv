@@ -30,6 +30,10 @@ class MainActivity : BaseActivity(), MainMvpView {
 
         supportActionBar!!.setHomeButtonEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     override fun onDestroy() {
