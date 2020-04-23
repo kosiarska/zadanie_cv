@@ -83,6 +83,23 @@
             android:fontFamily="@font/medium"
             android:text="@string/description"
             android:textSize="@dimen/_12ssp" />
+
+
+        <TextView
+            android:id="@+id/apps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bold"
+            android:text="@string/apps"
+            android:textSize="@dimen/_15ssp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/links"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </LinearLayout>
 
 

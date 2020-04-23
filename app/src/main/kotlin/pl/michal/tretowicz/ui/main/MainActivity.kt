@@ -25,7 +25,7 @@ class MainActivity : BaseActivity(), MainMvpView {
     @Inject
     lateinit var toastManager: ToastManager
 
-    lateinit var adapter: CvAdapter
+    private lateinit var adapter: CvAdapter
     private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {

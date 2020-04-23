@@ -10,4 +10,5 @@
     <string name="city">Miasto: %s</string>
     <string name="time">Czas: %s</string>
     <string name="description">Opis stanowiska: %s</string>
+    <string name="apps">Realizacje:</string>
 </resources>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.github.ajalt.timberkt.e
 import kotlinx.android.synthetic.main.item_basic_info.view.*
 import kotlinx.android.synthetic.main.item_basic_info.view.address
 import kotlinx.android.synthetic.main.item_basic_info.view.age
@@ -124,6 +125,12 @@ class ViewHolderWorkInfo(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 workInfoItem.url.viewUrl(itemView.context)
             }
         }
+        if(workInfoItem.links.isEmpty()) {
+            itemView.apps.gone()
+        } else {
+            itemView.apps.visible()
+        }
+        itemView.links.adapter = LinksAdapter(itemView.context, workInfoItem.links)
     }
 }
 
