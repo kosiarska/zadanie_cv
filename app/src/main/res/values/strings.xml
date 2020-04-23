@@ -1,2 +1,8 @@
 <resources>
+
+    <string name="email">"Email: %s"</string>
+    <string name="linkedin">"Linkedin: %s"</string>
+    <string name="age">Wiek: %s</string>
+    <string name="phoneNumber">Telefon: %s</string>
+    <string name="address">Adres: %s</string>
 </resources>

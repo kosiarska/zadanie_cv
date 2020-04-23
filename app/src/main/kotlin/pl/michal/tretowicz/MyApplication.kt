@@ -6,6 +6,7 @@ import pl.michal.tretowicz.injection.component.ApplicationComponent
 import pl.michal.tretowicz.injection.component.DaggerApplicationComponent
 import pl.michal.tretowicz.injection.module.ApplicationModule
 import pl.michal.tretowicz.util.Preferences
+import timber.log.Timber
 
 
 open class MyApplication : android.app.Application() {
@@ -18,6 +19,10 @@ open class MyApplication : android.app.Application() {
         initDaggerComponent()
         Preferences.init(this)
         Fabric.with(this)
+
+        if(BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
     }
 
 

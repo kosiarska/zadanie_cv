@@ -14,6 +14,6 @@ import javax.inject.Singleton
 @Singleton
 class DataManager @Inject constructor(@ApplicationContext private val context: Context, private val apiService: ApiService, private val sessionManager: SessionManager) {
 
-    companion object {
-    }
+
+    fun getCvData() = apiService.getCvData()
 }
