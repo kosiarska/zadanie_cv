@@ -1,0 +1,21 @@
+
+variables:
+  ANDROID_EMULATOR_FORCE_32BIT: "true"
+
+before_script:
+  - chmod +x gradlew
+
+test:
+  stage: test
+  script:
+    - fastlane test
+  only:
+    - develop
+
+develop:
+  stage: build
+  script:
+    - fastlane fabric
+  only:
+    - testing
+

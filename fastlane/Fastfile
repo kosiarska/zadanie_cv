@@ -1,0 +1,62 @@
+
+# If you want to automatically update fastlane if a new version is available:
+update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "1.81.0"
+
+default_platform :android
+
+gradle_properties = {
+}
+
+platform :android do
+  before_all do
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+  end
+
+
+  desc "Run tests"
+  lane :test do
+    gradle(task: "check", properties: gradle_properties)
+  end
+
+  desc "Run tests + instrumentional"
+  lane :androidTest do
+    gradle(task: "connectedAndroidTest", properties: gradle_properties)
+  end
+
+  desc "Deploy Fabric"
+  lane :fabric do
+     gradle(task: "assembleRelease", properties: gradle_properties)
+
+     crashlytics(
+       api_token: "1f924111bfd0b04eee3e0f88ac64b935dd9bfb91",
+       build_secret: "8f7faefd72b4b8438fba758c940ffff914a742cf6487563b49c5298891804975",
+       notes_path: "./crashlytics_release_notes.txt",
+       # apk_path: lane_context[Actions::SharedValues::GRADLE_APK_OUTPUT_PATH],
+       apk_path: "./app/build/outputs/apk/release/app-release.apk",
+       groups: "proexe",
+       notifications: "true",
+       debug: "true"
+     )
+   end
+
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+    slack(message: "Success")
+  end
+
+  error do |lane, exception|
+    slack(
+       message: exception.message,
+       success: false
+     )
+  end
+end
+
+

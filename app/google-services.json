@@ -1,0 +1,196 @@
+{
+  "project_info": {
+    "project_number": "874873351189",
+    "firebase_url": "https://orlen-obchody.firebaseio.com",
+    "project_id": "orlen-obchody",
+    "storage_bucket": "orlen-obchody.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874873351189:android:4d3505ecf327c2779af21c",
+        "android_client_info": {
+          "package_name": "pl.orlen.obchody"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874873351189-01qasfnvbtin2hjkb0jdk4e4qpt88ir5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.orlen.obchody",
+            "certificate_hash": "1435dd88be3ab08d17b2efe65aa80b971838e2fc"
+          }
+        },
+        {
+          "client_id": "874873351189-6hll8jb019motvarq61ibkmlkall5lg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDNJjcVtal20sPIwzwasfo9tgXc5Mr-Is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874873351189-6hll8jb019motvarq61ibkmlkall5lg6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874873351189:android:f902c14729cd60049af21c",
+        "android_client_info": {
+          "package_name": "pl.orlen.obchody.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874873351189-hs5poojm1bq13bjamo3pdihsa6t59ko6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.orlen.obchody.dev",
+            "certificate_hash": "1435dd88be3ab08d17b2efe65aa80b971838e2fc"
+          }
+        },
+        {
+          "client_id": "874873351189-6hll8jb019motvarq61ibkmlkall5lg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDNJjcVtal20sPIwzwasfo9tgXc5Mr-Is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874873351189-6hll8jb019motvarq61ibkmlkall5lg6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874873351189:android:e58ecf941dcb8da59af21c",
+        "android_client_info": {
+          "package_name": "pl.orlen.obchody.prod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874873351189-vvku7utdv0fd8fj46f0f2kumh4bajk7t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.orlen.obchody.prod",
+            "certificate_hash": "1435dd88be3ab08d17b2efe65aa80b971838e2fc"
+          }
+        },
+        {
+          "client_id": "874873351189-6hll8jb019motvarq61ibkmlkall5lg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDNJjcVtal20sPIwzwasfo9tgXc5Mr-Is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874873351189-6hll8jb019motvarq61ibkmlkall5lg6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874873351189:android:2a558a86abc2cc9a9af21c",
+        "android_client_info": {
+          "package_name": "pl.orlen.obchody.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874873351189-4lhca5u3a388bp0a2bno0bjpie0kh074.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.orlen.obchody.staging",
+            "certificate_hash": "1435dd88be3ab08d17b2efe65aa80b971838e2fc"
+          }
+        },
+        {
+          "client_id": "874873351189-6hll8jb019motvarq61ibkmlkall5lg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDNJjcVtal20sPIwzwasfo9tgXc5Mr-Is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874873351189-6hll8jb019motvarq61ibkmlkall5lg6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874873351189:android:f3a1e5f8d2c4cff79af21c",
+        "android_client_info": {
+          "package_name": "pl.orlen.obchody.tst"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874873351189-haqkrhdj9nmg6nnb6l85s1fg8u28qpqt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.orlen.obchody.tst",
+            "certificate_hash": "1435dd88be3ab08d17b2efe65aa80b971838e2fc"
+          }
+        },
+        {
+          "client_id": "874873351189-6hll8jb019motvarq61ibkmlkall5lg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDNJjcVtal20sPIwzwasfo9tgXc5Mr-Is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874873351189-6hll8jb019motvarq61ibkmlkall5lg6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
