@@ -1,6 +1,7 @@
 package pl.michal.tretowicz.ui.main
 
 
+import com.zplesac.connectionbuddy.ConnectionBuddy
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 import pl.michal.tretowicz.data.DataManager
@@ -15,8 +16,11 @@ import javax.inject.Inject
 interface MainMvpView : MvpView {
     fun showProgress(show: Boolean)
     fun showData(data: CvResponse)
+    fun showNoNetworkDialog()
+    fun dismissNoNetworkDialog()
 
 }
+
 /**
  * Created by Michał Trętowicz
  */
@@ -30,6 +34,15 @@ constructor(private val rxEventBus: RxEventBus, private val sessionManager: Sess
         super.attachView(view)
 
         view.showProgress(true)
+
+        downloadData()
+
+        if (!ConnectionBuddy.getInstance().hasNetworkConnection()) {
+            view.showNoNetworkDialog()
+        }
+    }
+
+    private fun downloadData() {
         dataManager.getCvData()
                 .subscribeBy(
                         onNext = {
@@ -40,6 +53,15 @@ constructor(private val rxEventBus: RxEventBus, private val sessionManager: Sess
 
                         }
                 ).addTo(subscriptions)
+    }
+
+    fun retry() {
+        if(ConnectionBuddy.getInstance().hasNetworkConnection()) {
+            view.dismissNoNetworkDialog()
+        } else {
+            view.showNoNetworkDialog()
+        }
+        downloadData()
     }
 
 }

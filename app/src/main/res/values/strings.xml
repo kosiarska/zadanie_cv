@@ -11,4 +11,6 @@
     <string name="time">Czas: %s</string>
     <string name="description">Opis stanowiska: %s</string>
     <string name="apps">Realizacje:</string>
+    <string name="title_no_network">Brak połączenia z internetem</string>
+    <string name="try_again">Spróbuj ponownie</string>
 </resources>

@@ -1,6 +1,8 @@
 package pl.michal.tretowicz
 
 
+import com.zplesac.connectionbuddy.ConnectionBuddy
+import com.zplesac.connectionbuddy.ConnectionBuddyConfiguration
 import io.fabric.sdk.android.Fabric
 import pl.michal.tretowicz.injection.component.ApplicationComponent
 import pl.michal.tretowicz.injection.component.DaggerApplicationComponent
@@ -23,6 +25,9 @@ open class MyApplication : android.app.Application() {
         if(BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+
+        val networkInspectorConfiguration = ConnectionBuddyConfiguration.Builder(this).build()
+        ConnectionBuddy.getInstance().init(networkInspectorConfiguration)
     }
 
 

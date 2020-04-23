@@ -1,10 +1,12 @@
 package pl.michal.tretowicz.ui.main
 
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.github.ajalt.timberkt.e
 import kotlinx.android.synthetic.main.activity_main.*
 import pl.michal.tretowicz.R
@@ -27,6 +29,8 @@ class MainActivity : BaseActivity(), MainMvpView {
 
     private lateinit var adapter: CvAdapter
     private var doubleBackToExitPressedOnce = false
+
+    private var dialog : AlertDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,5 +73,18 @@ class MainActivity : BaseActivity(), MainMvpView {
     override fun showData(data: CvResponse) {
         adapter = CvAdapter(this, data)
         list.adapter = adapter
+    }
+
+    override fun showNoNetworkDialog() {
+        dialog = AlertDialog.Builder(this)
+                .setPositiveButton(getString(R.string.try_again)) { _, _ ->
+                    presenter.retry()
+                }
+                .setTitle(R.string.title_no_network)
+                .show()
+    }
+
+    override fun dismissNoNetworkDialog() {
+        dialog?.dismiss()
     }
 }
