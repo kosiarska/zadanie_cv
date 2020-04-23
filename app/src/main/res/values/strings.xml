@@ -5,4 +5,9 @@
     <string name="age">Wiek: %s</string>
     <string name="phoneNumber">Telefon: %s</string>
     <string name="address">Adres: %s</string>
+    <string name="experience">Doświadczenie:</string>
+    <string name="press_twice_to_exit">Naciśnij dwa razy aby wyjść</string>
+    <string name="city">Miasto: %s</string>
+    <string name="time">Czas: %s</string>
+    <string name="description">Opis stanowiska: %s</string>
 </resources>

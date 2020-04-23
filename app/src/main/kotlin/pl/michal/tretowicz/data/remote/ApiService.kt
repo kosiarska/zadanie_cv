@@ -16,6 +16,6 @@ interface ApiService {
         const val URL = BuildConfig.API
     }
 
-    @GET("kosiarska/240a482ee9c3ec377ccd66478aecc814/raw/1b6e5c2b19596237df4032e855e41ffbac4d30d7/cv1.json")
+    @GET("kosiarska/240a482ee9c3ec377ccd66478aecc814/raw/384ab3ce7b4a3ad9335b526b18ae67209fce4c4f/cv1.json")
     fun getCvData() : Observable<CvResponse>
 }

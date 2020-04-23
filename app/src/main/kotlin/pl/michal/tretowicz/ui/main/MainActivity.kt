@@ -2,7 +2,9 @@ package pl.michal.tretowicz.ui.main
 
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
+import android.widget.Toast
 import com.github.ajalt.timberkt.e
 import kotlinx.android.synthetic.main.activity_main.*
 import pl.michal.tretowicz.R
@@ -24,6 +26,7 @@ class MainActivity : BaseActivity(), MainMvpView {
     lateinit var toastManager: ToastManager
 
     lateinit var adapter: CvAdapter
+    private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,13 +41,25 @@ class MainActivity : BaseActivity(), MainMvpView {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         toolbar.setNavigationOnClickListener {
-            finish()
+            onBackPressed()
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         presenter.detachView()
+    }
+
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        toastManager.success(R.string.press_twice_to_exit)
+
+        Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
 
     override fun showProgress(show: Boolean) {

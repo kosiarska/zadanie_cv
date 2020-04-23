@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName
 @Generated("com.robohorse.robopojogenerator")
 data class CvResponse(
 
-	@field:SerializedName("basic_info")
-	val basicInfo: BasicInfo,
+        @field:SerializedName("basic_info")
+        val basicInfo: BasicInfo,
 
-	@field:SerializedName("work_info")
-	val workInfo: List<WorkInfoItem>
+        @field:SerializedName("work_info")
+        val workInfo: List<WorkInfoItem>
 )

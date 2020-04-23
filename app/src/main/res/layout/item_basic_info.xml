@@ -7,6 +7,9 @@
     android:layout_height="wrap_content"
     card_view:cardBackgroundColor="@color/white"
     card_view:cardCornerRadius="5dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     card_view:cardElevation="5dp"
     card_view:cardUseCompatPadding="true">
 
@@ -14,7 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingStart="@dimen/horizontal_margin"
         android:paddingTop="@dimen/vertical_margin"
         android:paddingEnd="@dimen/horizontal_margin"
         android:paddingBottom="@dimen/vertical_margin">

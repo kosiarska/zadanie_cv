@@ -6,12 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_basic_info.view.*
+import kotlinx.android.synthetic.main.item_basic_info.view.address
+import kotlinx.android.synthetic.main.item_basic_info.view.age
+import kotlinx.android.synthetic.main.item_basic_info.view.email
+import kotlinx.android.synthetic.main.item_basic_info.view.image
+import kotlinx.android.synthetic.main.item_basic_info.view.linkedin
+import kotlinx.android.synthetic.main.item_basic_info.view.name
+import kotlinx.android.synthetic.main.item_basic_info.view.phoneNumber
+import kotlinx.android.synthetic.main.item_work.view.*
 import pl.michal.tretowicz.R
 import pl.michal.tretowicz.data.remote.model.BasicInfo
 import pl.michal.tretowicz.data.remote.model.CvResponse
-import pl.michal.tretowicz.util.extension.load
-import pl.michal.tretowicz.util.extension.sendEmail
-import pl.michal.tretowicz.util.extension.viewUrl
+import pl.michal.tretowicz.data.remote.model.WorkInfoItem
+import pl.michal.tretowicz.util.extension.*
 import pl.michal.tretowicz.util.picasso.CircleTransform
 import java.lang.IllegalStateException
 import java.net.URLDecoder
@@ -26,12 +33,17 @@ class CvAdapter(private val context: Context, private val cvData: CvResponse) : 
     companion object {
         const val VIEW_BASIC_INFO = 0
         const val VIEW_WORK = 1
+        const val VIEW_HEADER = 2
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         when (viewType) {
             VIEW_BASIC_INFO -> {
                 return ViewHolderBasicInfo(layoutInflater.inflate(R.layout.item_basic_info, parent, false))
+            }
+
+            VIEW_HEADER -> {
+                return ViewHolderHeader(layoutInflater.inflate(R.layout.item_header, parent, false))
             }
 
             VIEW_WORK -> {
@@ -41,18 +53,28 @@ class CvAdapter(private val context: Context, private val cvData: CvResponse) : 
         throw IllegalStateException("no such view for $viewType view type")
     }
 
-    override fun getItemCount() = cvData.workInfo.size + 1
+    override fun getItemCount() = cvData.workInfo.size + 2
 
     override fun getItemViewType(position: Int): Int {
-        return if (position == 0) VIEW_BASIC_INFO else VIEW_WORK
+        if (position == 0) {
+            return VIEW_BASIC_INFO
+        } else if (position == 1) {
+            return VIEW_HEADER
+        }
+        return VIEW_WORK
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        when(getItemViewType(position)) {
+        when (getItemViewType(position)) {
             VIEW_BASIC_INFO -> {
                 val h = holder as ViewHolderBasicInfo
                 h.bind(cvData.basicInfo)
+            }
+
+            VIEW_WORK -> {
+                val h = holder as ViewHolderWorkInfo
+                h.bind(cvData.workInfo[position - 2])
             }
         }
     }
@@ -80,4 +102,29 @@ class ViewHolderBasicInfo(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 }
 
-class ViewHolderWorkInfo(itemView: View) : RecyclerView.ViewHolder(itemView)
+class ViewHolderWorkInfo(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+    fun bind(workInfoItem: WorkInfoItem) {
+        if (workInfoItem.companyLogo.isEmpty()) {
+            itemView.image.gone()
+            itemView.space.gone()
+        } else {
+            itemView.image.visible()
+            itemView.space.visible()
+            itemView.image.load(workInfoItem.companyLogo) { it.fit().centerInside() }
+        }
+
+        itemView.name.text = workInfoItem.companyName
+        itemView.city.text = itemView.context.getString(R.string.city, workInfoItem.place)
+        itemView.time.text = itemView.context.getString(R.string.time, workInfoItem.time)
+        itemView.description.text = workInfoItem.description
+
+        itemView.setOnClickListener {
+            if (workInfoItem.url != null && workInfoItem.url.isNotEmpty()) {
+                workInfoItem.url.viewUrl(itemView.context)
+            }
+        }
+    }
+}
+
+class ViewHolderHeader(itemView: View) : RecyclerView.ViewHolder(itemView)
