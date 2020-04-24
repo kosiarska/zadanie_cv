@@ -3,7 +3,6 @@ package pl.michal.tretowicz
 
 import com.zplesac.connectionbuddy.ConnectionBuddy
 import com.zplesac.connectionbuddy.ConnectionBuddyConfiguration
-import io.fabric.sdk.android.Fabric
 import pl.michal.tretowicz.injection.component.ApplicationComponent
 import pl.michal.tretowicz.injection.component.DaggerApplicationComponent
 import pl.michal.tretowicz.injection.module.ApplicationModule
@@ -20,7 +19,6 @@ open class MyApplication : android.app.Application() {
         super.onCreate()
         initDaggerComponent()
         Preferences.init(this)
-        Fabric.with(this)
 
         if(BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
